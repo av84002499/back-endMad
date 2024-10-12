@@ -5,12 +5,12 @@ const prisma = new PrismaClient();
 
 export const addNewPokemon = async (req, res) => {
     const { name, types } = req.body;
+    console.log(req.body);
 
-    // if (!req.file) {
-    //     return res.status(400).json({ error: 'Sprite image is required' });
-    // }
+    if (!req.file) {
+        return res.status(400).json({ error: 'Sprite image is required' });
+    }
 
-    // const spritePath = "/uploads/Bulbasaur.jpeg"; // File path for testing purpose
     const spritePath = `/uploads/${req.file.filename}`; // File path to store in the database
 
     try {
@@ -38,11 +38,8 @@ export const getPokemon = async (req, res) => {
     const pokemon = await prisma.pokemon.findUnique({ where: { id } });
     res.json(pokemon);
 };
-// export const updatePokemon = async (req, res) => {
-//     // let result = await Pokemon.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
-//     res.json(result);
-// };
-// export const deletePokemon = async (req, res) => {
-//     // let result = await Pokemon.deleteOne({ _id: req.params.id });
-//     res.json(result);
-// };
+export const deletePokemon = async (req, res) => {
+    const { id } = req.params;
+    const result = await prisma.pokemon.delete({ where: { id } });
+    res.json(result);
+};
