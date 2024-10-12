@@ -11,7 +11,7 @@ export const addNewPokemon = async (req, res) => {
         return res.status(400).json({ error: 'Sprite image is required' });
     }
 
-    const spritePath = `/uploads/${req.file.filename}`; // File path to store in the database
+    const spritePath = `/pokemons/${req.file.filename}`; // File path to store in the database
 
     try {
         // Create a new Pokémon in the database

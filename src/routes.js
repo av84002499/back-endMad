@@ -4,7 +4,7 @@ import { addNewPokemon, getPokemon, getPokemons, deletePokemon } from "./control
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './assets/pokemons/'); // Set the destination folder
+        cb(null, './uploads/pokemons/'); // Set the destination folder
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname); // Use the original file name
