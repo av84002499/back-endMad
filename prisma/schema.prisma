@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")  // Your MongoDB connection URL here
+}
+
+model Pokemon {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  types  String[] // Array of strings to store multiple types
+  sprite String
+}
