@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 // Fix: Correct CORS configuration
 app.use(cors({
-  origin: 'https://front-endfront.vercel.ap', // Allowed origin
+  origin: 'https://front-endfront.vercel.app', // Replace with your front-end URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
