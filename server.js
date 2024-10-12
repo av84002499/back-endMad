@@ -7,7 +7,7 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your front-end URL
+  origin: 'https://front-endfront.vercel.app', // Replace with your front-end URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
